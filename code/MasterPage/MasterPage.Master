@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="WedDuLich.MasterPage.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="~/Style/StyleSheet1.css" type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+        .auto-style2 {
+            text-align: right;
+        }
+    </style>
+    </head>
+<body>
+    <form id="form1" runat="server">       
+            <table class="auto-style1" style="width: 1000px">
+        <tr>
+            <td colspan="2">
+                <%-- baner --%>
+                <img alt="" src="../Hinhanh/banner.png" style="width: 1130px; height: 230px;" /></td>
+        </tr>
+        <tr>
+            <td style="width: 170px; height: 45px; background-color: #008080;" class="auto-style1">                
+                
+                <img alt="" src="../Hinhanh/logo3.png" style="height: 45px" /></td>
+            <td style="width: 830px; height: 45px; background-color: #008080;" class="auto-style1">                
+                <%-- menu --%>
+                <div class="menuheader" style="width: 830px; float:unset; vertical-align: middle;">
+                    <strong>
+                <asp:Menu runat="server" Orientation ="Horizontal" DataSourceID="Wed" CssClass="aspmenu" StaticDisplayLevels="2" StaticEnableDefaultPopOutImage="False" >
+
+                </asp:Menu>
+                    </strong>
+                <asp:SiteMapDataSource ID="Wed" runat="server" />               
+                </div>
+            </td>
+        </tr>
+        <tr>
+                <td class="auto-style2" style="width: 170px; vertical-align: top; background-color: #009999;">
+                    <%-- MENU DOC --%>
+                    <div class="menudoc">
+                    <ul>
+                    <li><a href="TrangChu.aspx">Nội Thất Văn Phòng</a></li>
+                    <li><a href="DangKy.aspx">Nội Thất Phòng Khách</a></li>
+                    <li><a href="DangNhap.aspx">Nội Thất Bếp</a></li>
+                    <li><a href="DSsanpham.aspx">Trang Trí Sân Vườn</a></li>
+                    <li><a href="LienHe.aspx">Trang Trí Shop</a></li>
+                     <ul>
+                    </div>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QLdl %>" SelectCommand="SELECT [TenDM] FROM [DanhMuc]"></asp:SqlDataSource>
+                    <asp:DataList ID="DataList1" runat="server" Width="100%">
+                        <ItemTemplate>
+                            <div class="auto-style1">
+                                <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Size="Large" NavigateUrl='<%# "DSsanpham.aspx?MaDM="+Eval("MaDM") %>' Text='<%# Eval("TenDM") %>'></asp:HyperLink>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>
+                    <br />
+                </td>
+                <td style="vertical-align: middle"> 
+                    <%-- các thành phần chính của wed --%>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <%-- các thành phần chính của wed --%>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%-- chân wed --%>
+                    <div class="footer">
+                    <p class="auto-style1"><strong style="width: 1000px">CÔNG TY NỘI THẤT BA THÀNH VIÊN</strong></p>
+                    <p>@2020 copyright | www.sda.com | facebook.</p>
+                    </div>
+                </td>
+            </tr>
+            </table>
+    </form>
+    
+</body>
+</html>

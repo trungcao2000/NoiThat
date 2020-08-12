@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMasterPage.master.cs" Inherits="WedDuLich.MasterPage.AdminMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="~/Style/StyleSheet2.css" type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  
+    <style type="text/css">
+       .menungang ul {
+    background: #fbba00;
+    width: 800px;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+}
+.menungang li {
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #fbba00;
+    padding: 0 1em;
+}
+.menungang li a {
+        display: inline-block;
+        padding:1px 10px;
+        color: white;
+        text-decoration: none;
+}
+    .menungang li:hover {
+        background-color: #fbba00;
+    }
+    </style>
+  
+    </head>
+<body>
+    <form id="form1" runat="server">       
+            <table class="auto-style1" style="width: 1000px">
+        <tr>
+            <td colspan="2">
+                <%-- baner --%>
+                <img alt="" src="../Hinhanh/Cables.png" style="width: 1130px; height: 230px;" /></td>
+        </tr>
+        <tr style="background-color: #fbba00">
+            <td style="width: 170px; height: 65px; background-color: #fbba00;" class="auto-style1">                
+                
+                <img alt="" src="../Hinhanh/logo3.png" style="height: 45px" /></td>
+            <td style="width: 830px; height: 45px; background-color: #fbba00;" class="auto-style1">                
+                <%-- menu --%>
+                <div class="menungang" >
+                    <ul>
+                    <li>
+                        <a href="TrangChuAdmin.aspx">Trang Chủ</a>
+                        <a href="TrangChuAdmin.aspx">Thành Viên</a>
+                        <a href="NhapSP.aspx">Nhập Sản Phẩm</a>
+                        <a href="TimKiemAdmin.aspx">Tìm Kiếm</a>
+                        <a href="TrangChuAdmin.aspx">Đơn Hàng</a>
+                    </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+                <td class="auto-style2" style="width: 170px; vertical-align: top; background-color: #fbba00;">
+                    <%-- MENU DOC --%>
+                    <div class="menudoc">
+                    <ul>
+                    <li><a href="TrangChu.aspx">Xem Đơn Hàng</a></li>
+                    <li><a href="NhapSP.aspx">Thêm Sản Phẩm</a></li>
+                    <li><a href="DangNhap.aspx">Quản Lý User</a></li>
+                    <li><a href="PhanHoi.aspx">Xem Phản Hồi</a></li>
+                    <li><a href="LienHe.aspx"></a></li>
+                     <ul>
+                    </div>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Width="230px">
+                        <Columns>
+                            <asp:BoundField DataField="TenDM" HeaderText="Nội Thất Gia Đình" SortExpression="TenDM" FooterStyle-ForeColor="White" ItemStyle-ForeColor="White">
+<FooterStyle ForeColor="White"></FooterStyle>
+
+                            <HeaderStyle Font-Bold="True" ForeColor=yellow BorderColor="White" Font-Size="16px" Height="35px" Width="200px" />
+
+<ItemStyle ForeColor="White" BorderColor="White" Font-Bold="True" Font-Size="16px" Height="35px" Width="200px"></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>                                 
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QLdl %>" SelectCommand="SELECT [TenDM] FROM [DanhMuc]"></asp:SqlDataSource>
+                    <br />
+                </td>
+                <td style="vertical-align: middle"> 
+                    <%-- các thành phần chính của wed --%>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <%-- các thành phần chính của wed --%>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%-- chân wed --%>
+                    <div class="footer">
+                    <p class="auto-style1"><strong style="width: 1000px">CÔNG TY NỘI THẤT BA THÀNH VIÊN</strong></p>
+                    <p>@2020 copyright | www.sda.com | facebook.</p>
+                    </div>
+                </td>
+            </tr>
+            </table>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿
+.footer {
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    font-family: Tahoma;
+    border: 2PX solid #fff;
+    background: #008080;
+}
+
+.aspmenu *{
+    background-color : darkcyan;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    padding-left:30px;
+    padding-right:30px;
+}
+.aspmenu *:hover {
+    color:gold;
+}
+
+.menudoc ul {
+    background: #008080;
+    width: 250px;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+}
+.menudoc li {
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 1em;
+}
+.menudoc li a {
+        display: block;
+        padding:1px 10px;
+        color: white;
+        text-decoration: none;
+}
+.menudoc li:hover {
+        background-color:darkseagreen;
+}
+
+
